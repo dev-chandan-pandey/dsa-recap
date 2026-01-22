@@ -606,3 +606,5 @@ System.out.println(Arrays.equals(arr1, arr2)); // true
 ✅ So: what you have is **sufficient for most interviews**, but adding **PriorityQueue, TreeMap, Graph templates, BFS/DFS, and common string algorithms** will make your recap sheet **complete and future-proof**.  
 
 Would you like me to **bundle everything (arrays, strings, char, collections, graph, algorithms) into one single “DSA Interview Quick Reference” document** so you can save it as a master cheat sheet?
+
+`https://copilot.microsoft.com/pages/5E77m7UW5mkCTqpjizEXj`
