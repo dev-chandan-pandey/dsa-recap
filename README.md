@@ -380,6 +380,116 @@ for (char ch : s.toCharArray()) {
 System.out.println(freq['a' - 'a']); // Count of 'a'
 ```
 
+You’ve already got a **solid foundation**: arrays, strings, char, StringBuffer, StringBuilder, plus the core DSA structures (stack, queue, linked list, hash map, hash set, two pointers, sliding window). That’s enough to handle most interview rounds.  
+
+But if you want to be **fully covered for quick recall**, here are a few **extra snippets/topics worth adding**:
+
+---
+
+## 🔑 Additional Useful Snippets
+
+### 1. PriorityQueue (Heap)
+```java
+import java.util.PriorityQueue;
+
+PriorityQueue<Integer> pq = new PriorityQueue<>(); // Min-heap
+pq.add(10);
+pq.add(5);
+pq.add(20);
+
+System.out.println(pq.peek()); // Smallest element
+pq.poll();                     // Remove smallest
+```
+
+👉 Often used in problems like **Top K elements, scheduling, shortest path (Dijkstra)**.
+
+---
+
+### 2. TreeMap (Sorted Map)
+```java
+import java.util.TreeMap;
+
+TreeMap<Integer, String> tm = new TreeMap<>();
+tm.put(2, "B");
+tm.put(1, "A");
+tm.put(3, "C");
+
+System.out.println(tm.firstKey()); // 1
+System.out.println(tm.lastKey());  // 3
+```
+
+👉 Useful when you need **sorted keys** automatically.
+
+---
+
+### 3. Graph Representation
+```java
+// Adjacency List
+int n = 5;
+List<List<Integer>> graph = new ArrayList<>();
+for (int i = 0; i < n; i++) graph.add(new ArrayList<>());
+
+graph.get(0).add(1);
+graph.get(1).add(2);
+```
+
+👉 Needed for BFS/DFS, shortest path, cycle detection.
+
+---
+
+### 4. BFS & DFS Templates
+```java
+// BFS
+Queue<Integer> q = new LinkedList<>();
+boolean[] visited = new boolean[n];
+q.add(0);
+visited[0] = true;
+
+while (!q.isEmpty()) {
+    int node = q.poll();
+    for (int nei : graph.get(node)) {
+        if (!visited[nei]) {
+            visited[nei] = true;
+            q.add(nei);
+        }
+    }
+}
+
+// DFS
+boolean[] visitedDFS = new boolean[n];
+void dfs(int node) {
+    visitedDFS[node] = true;
+    for (int nei : graph.get(node)) {
+        if (!visitedDFS[nei]) dfs(nei);
+    }
+}
+```
+
+---
+
+### 5. Common String Algorithms
+- **Reverse String**
+```java
+String s = "hello";
+String rev = new StringBuilder(s).reverse().toString();
+```
+
+- **Check Anagram**
+```java
+String a = "listen", b = "silent";
+char[] arr1 = a.toCharArray();
+char[] arr2 = b.toCharArray();
+Arrays.sort(arr1);
+Arrays.sort(arr2);
+System.out.println(Arrays.equals(arr1, arr2)); // true
+```
+
+---
+
+✅ So: what you have is **sufficient for most interviews**, but adding **PriorityQueue, TreeMap, Graph templates, BFS/DFS, and common string algorithms** will make your recap sheet **complete and future-proof**.  
+
+Would you like me to **bundle everything (arrays, strings, char, collections, graph, algorithms) into one single “DSA Interview Quick Reference” document** so you can save it as a master cheat sheet?
+
 ---
 
 ✅ With this, you now have **Arrays, Strings, StringBuffer, StringBuilder, and char** covered in one place.  
