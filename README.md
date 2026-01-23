@@ -821,3 +821,46 @@ while (!q.isEmpty()) {
 ---
 
 Would you like me to **bundle this into a “Loop Selection Cheat Sheet” with code snippets for each data structure** so you can save it alongside your DSA reference? That way, you’ll have both **methods + loops** in one place.
+
+
+
+I see what you’re trying to do — iterate over a collection using an **Iterator** in Java. Your snippet has a small syntax issue. Here’s the corrected version:
+
+```java
+import java.util.*;
+
+public class IteratorExample {
+    public static void main(String[] args) {
+        // Example collection
+        List<String> users = new ArrayList<>();
+        users.add("Alice");
+        users.add("Bob");
+        users.add("Charlie");
+
+        // ITERATOR
+        System.out.println("USING ITERATOR");
+        Iterator<String> it = users.iterator();   // ✅ Corrected syntax
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+}
+```
+
+---
+
+### 🔑 Key Points about Iterators
+- `Iterator<T> it = collection.iterator();` → creates an iterator for the collection.  
+- `it.hasNext()` → checks if there are more elements.  
+- `it.next()` → returns the next element.  
+- `it.remove()` → safely removes the current element while iterating.  
+
+---
+
+👉 **When to use Iterator?**
+- When you want to traverse a collection (like `ArrayList`, `HashSet`, `LinkedList`) without worrying about indices.  
+- When you need to **safely remove elements** during iteration (for-each loop doesn’t allow removal).  
+
+---
+
+Would you like me to also show you **examples of using Iterator with different data structures** (like `HashSet`, `HashMap`, `LinkedList`) so you can see how it changes depending on the collection?
