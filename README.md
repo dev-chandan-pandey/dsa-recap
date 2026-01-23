@@ -864,3 +864,138 @@ public class IteratorExample {
 ---
 
 Would you like me to also show you **examples of using Iterator with different data structures** (like `HashSet`, `HashMap`, `LinkedList`) so you can see how it changes depending on the collection?
+
+Perfect — let’s build a **quick reference for matrix-type DSA problems (2D and 3D arrays)**. These are very common in interviews (think: spiral traversal, search in matrix, dynamic programming grids, BFS/DFS on grids, etc.).  
+
+---
+
+# 🧩 Matrix / 2D & 3D Array Cheat Sheet (Java)
+
+## 1. Declaration & Initialization
+```java
+// 2D Array
+int[][] matrix = new int[3][3];   // 3x3 matrix
+int[][] mat = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+// 3D Array
+int[][][] cube = new int[3][3][3]; // 3x3x3 cube
+```
+
+---
+
+## 2. Traversal (Row & Column)
+```java
+// 2D Array Traversal
+for (int i = 0; i < mat.length; i++) {          // rows
+    for (int j = 0; j < mat[0].length; j++) {   // cols
+        System.out.print(mat[i][j] + " ");
+    }
+    System.out.println();
+}
+```
+
+---
+
+## 3. Enhanced For Loop (Cleaner Traversal)
+```java
+for (int[] row : mat) {
+    for (int val : row) {
+        System.out.print(val + " ");
+    }
+    System.out.println();
+}
+```
+
+---
+
+## 4. Common Interview Patterns
+
+### a) Row-wise Sum
+```java
+for (int i = 0; i < mat.length; i++) {
+    int sum = 0;
+    for (int j = 0; j < mat[0].length; j++) {
+        sum += mat[i][j];
+    }
+    System.out.println("Row " + i + " sum = " + sum);
+}
+```
+
+### b) Column-wise Sum
+```java
+for (int j = 0; j < mat[0].length; j++) {
+    int sum = 0;
+    for (int i = 0; i < mat.length; i++) {
+        sum += mat[i][j];
+    }
+    System.out.println("Col " + j + " sum = " + sum);
+}
+```
+
+### c) Diagonal Traversal
+```java
+// Primary diagonal
+for (int i = 0; i < mat.length; i++) {
+    System.out.print(mat[i][i] + " ");
+}
+
+// Secondary diagonal
+for (int i = 0; i < mat.length; i++) {
+    System.out.print(mat[i][mat.length - 1 - i] + " ");
+}
+```
+
+---
+
+## 5. BFS/DFS on Matrix (Grid Problems)
+```java
+int[][] directions = {{1,0},{-1,0},{0,1},{0,-1}}; // 4 directions
+
+boolean[][] visited = new boolean[mat.length][mat[0].length];
+
+void dfs(int i, int j) {
+    if (i < 0 || j < 0 || i >= mat.length || j >= mat[0].length || visited[i][j]) return;
+    visited[i][j] = true;
+    for (int[] d : directions) {
+        dfs(i + d[0], j + d[1]);
+    }
+}
+```
+
+👉 Used in problems like **number of islands, flood fill, shortest path in grid**.
+
+---
+
+## 6. 3D Array Traversal
+```java
+for (int i = 0; i < cube.length; i++) {
+    for (int j = 0; j < cube[0].length; j++) {
+        for (int k = 0; k < cube[0][0].length; k++) {
+            System.out.print(cube[i][j][k] + " ");
+        }
+    }
+}
+```
+
+---
+
+# ⚡ When to Use Which Loop
+
+| Scenario                        | Best Loop Choice |
+|---------------------------------|------------------|
+| Fixed row/col traversal         | **For loop**     |
+| Simple element access           | **For-each loop**|
+| BFS/DFS grid problems           | **While loop** (queue/stack) |
+| Unknown traversal until condition| **While loop**   |
+| At least once (menu/grid input) | **Do-while loop**|
+
+---
+
+✅ With this, you have **ready-to-use templates for 2D/3D arrays and matrix problems**.  
+
+Would you like me to also add **classic matrix interview problems** (like spiral traversal, rotate matrix, search in sorted matrix) with code snippets? These are asked very frequently and would complete your matrix cheat sheet.
+
